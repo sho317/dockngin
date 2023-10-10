@@ -18,5 +18,11 @@ pipeline {
       	sh 'docker build -t sho317/docknginix:${BUILD_NUMBER} .'
       }
     }
+	stage('DockerImg Push'){
+		steps{
+			withDockerRegistry(credentialsId: '2b0a9e31-d25f-4d7e-aa3d-04fb7fcb6014', url: 'https://hub.docker.com/repository/docker/sho317/docknginix') {
+    sh 'docker push sho317/docknginix:${BUILD_NUMBER}'
+}
   }
 }
+  }}
