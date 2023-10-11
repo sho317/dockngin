@@ -20,7 +20,7 @@ pipeline {
     }
 	stage('DockerImg Push'){
 		steps{
-			withDockerRegistry(credentialsId: '90560b0f-8543-4efc-9f73-b06cad14c5d0', url: 'https://index.docker.io') {
+			withDockerRegistry(credentialsId: 'c447e8d5-38e6-40e9-a184-f19a52d57a0c', url: 'https://index.docker.io') {
     sh 'docker push sho317/docknginix:${BUILD_NUMBER}'
 }
   }
