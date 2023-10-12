@@ -15,7 +15,7 @@ pipeline {
       }
       stage('Docker Build') {
       steps {
-	sh 'docker build -t sho317/docknginix:${BUILD_NUMBER} .'
+	sh 'docker build -t abhishekf5/cicd-e2e:${BUILD_NUMBER} .'
       }
     }
 	        stage('Push the artifacts'){
@@ -23,7 +23,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to Repo'
-                    docker push sho317/docknginix:${BUILD_NUMBER}
+                    docker push abhishekf5/cicd-e2e:${BUILD_NUMBER}
                     '''
                 }
             }
