@@ -15,25 +15,16 @@ pipeline {
       }
       stage('Docker Build') {
       steps {
-	sh 'docker build -t abhishekf5/cicd-e2e:${BUILD_NUMBER} .'
+	sh 'docker build -t sho317/docknginix:${BUILD_NUMBER} .'
       }
     }
-	        stage('Push the artifacts'){
-           steps{
-                script{
-                    sh '''
-                    echo 'Push to Repo'
-                    docker push abhishekf5/cicd-e2e:${BUILD_NUMBER}
-                    '''
-                }
-            }
-        }
+	        
 
 	  
 	stage('DockerImg Push'){
 		steps{
 			script{
-			withDockerRegistry(credentialsId: 'c447e8d5-38e6-40e9-a184-f19a52d57a0c', url: 'https://index.docker.io') {
+			withDockerRegistry(credentialsId: 'c447e8d5-38e6-40e9-a184-f19a52d57a0c', url: 'https://index.docker.io/v1/') {
 				sh '''
 			docker push sho317/docknginix:${BUILD_NUMBER}
    			'''
