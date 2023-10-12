@@ -18,6 +18,17 @@ pipeline {
 	sh 'docker build -t sho317/docknginix:${BUILD_NUMBER} .'
       }
     }
+	        stage('Push the artifacts'){
+           steps{
+                script{
+                    sh '''
+                    echo 'Push to Repo'
+                    docker push sho317/docknginix:${BUILD_NUMBER}
+                    '''
+                }
+            }
+        }
+
 	  
 	stage('DockerImg Push'){
 		steps{
