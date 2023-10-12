@@ -23,7 +23,7 @@ pipeline {
 		steps{
 			script{
 			withDockerRegistry(credentialsId: 'c447e8d5-38e6-40e9-a184-f19a52d57a0c', url: 'https://index.docker.io') {
-			sho317/docknginix:${BUILD_NUMBER}.push()
+			'sho317/docknginix:${BUILD_NUMBER}'.push()
 			}
 		}
   		}
